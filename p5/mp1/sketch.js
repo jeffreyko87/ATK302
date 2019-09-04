@@ -13,7 +13,7 @@ function draw() {
     fill("#2baf7f");
     ellipse(570, 166, 250, 250);
     fill("#279e73");
-    ellipse(570, 300, 300, 300);
+    ellipse(568, 300, 300, 300);
     fill("#1e7a59");
     ellipse(590, 310, 300, 300);
 
@@ -117,7 +117,7 @@ function draw() {
 
   } else {
     fill("#2baf7f");
-    ellipse(570, 166, 250, 250);
+    ellipse(573, 166, 250, 250);
     fill("#279e73");
     ellipse(570, 300, 300, 300);
     fill("#1e7a59");
