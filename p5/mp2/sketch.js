@@ -19,10 +19,17 @@ var flower1;
 var flower2;
 var grass1;
 var grass2;
+var song1;
+var song2;
 
 var mic;
 var vol;
 
+function preload(){
+  song1=loadSound("assets/song1.wav");
+  song2=loadSound("assets/song2.wav");
+  song1.loop();
+}
 function setup() {
   createCanvas(1000,600);
   man=loadImage("assets/man.png");
@@ -39,7 +46,7 @@ function setup() {
   flower2=loadImage("assets/flower2.png");
   grass1=loadImage("assets/grass1.png");
   grass2=loadImage("assets/grass2.png");
-
+  song1.play();
   mic = new p5.AudioIn();
   mic.start();
 
@@ -588,6 +595,8 @@ function draw() {
     image(can,130,420);
     if(y==450){
       myState=8;
+      song1.stop();
+      song2.play();
     }
       break;
 
