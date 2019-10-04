@@ -85,6 +85,11 @@ function draw() {
     rect(0,250,1000,500);
     fill("#E8ECE3");
     rect(0,270,1000,500);
+    fill(0);
+    textSize(15);
+    text("The boy just finished a startbucks drink,",5,290);
+    text("he wants to get rid of the garbage but we all know throwing it on the ground is not right.", 5,310);
+    text("So let's click the screen to help him reach the recycle trash can.",5,330);
 
     //mud
     fill("#915E2B");
@@ -213,6 +218,12 @@ function draw() {
     rect(0,250,1000,500);
     fill("#E8ECE3");
     rect(0,270,1000,500);
+    fill(0);
+    textSize(15);
+    text("He now gets slower by the mud on the ground,",498,310);
+    text("be patient.",498,330);
+
+
 
     //mud
     fill("#915E2B");
@@ -298,7 +309,7 @@ function draw() {
 
     fill(0);
     textSize(20);
-    text("Yell <Green> to pass!", 800,300);
+    text("Yell <Green> to pass!", 770,300);
 
     vol = mic.getLevel();
     vol = vol * 100;
