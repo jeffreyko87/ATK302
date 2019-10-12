@@ -21,7 +21,7 @@ function draw() {
   for(var i=0;i<cars.length;i++){
   cars[i].display();
   cars[i].drive();
-  
+
   if (cars[i].pos.dist(frogPos)<20){
     cars.splice(i,1);
   }
@@ -37,7 +37,7 @@ function draw() {
 function Car(){
   //attributes
 
-  this.pos=createVector(100,100);
+  this.pos=createVector(300,300);
   this.vel=createVector(random(-5,5),random(-5,5));
   this.r=random(255);
   this.g=random(255);
@@ -46,7 +46,7 @@ function Car(){
   //method
   this.display=function(){
     fill(this.r,this.g,this.b);
-    rect(this.pos.x,this.pos.y,100,50);
+    rect(this.pos.x,this.pos.y,60,30);
   }
 
   this.drive=function(){
