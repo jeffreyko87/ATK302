@@ -53,10 +53,10 @@ function setup() {
   bossfish[1] = loadImage("assets/bossfish1.png");
   bossfish[2] = loadImage("assets/bossfish2.png");
 
-  for (var i = 0; i < 20; i++) {
+  for (var i = 0; i < 13; i++) {
     cars.push(new Car());
   }
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < 3; i++) {
     boss.push(new Boss());
   }
 
