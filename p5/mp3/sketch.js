@@ -53,7 +53,7 @@ function setup() {
   bossfish[1] = loadImage("assets/bossfish1.png");
   bossfish[2] = loadImage("assets/bossfish2.png");
 
-  for (var i = 0; i < 13; i++) {
+  for (var i = 0; i < 10; i++) {
     cars.push(new Car());
   }
   for (var i = 0; i < 3; i++) {
@@ -400,7 +400,7 @@ function game() {
     boss[i].display();
     boss[i].drive();
 
-    if (boss[i].pos.dist(frogPos) < 30) {
+    if (boss[i].pos.dist(frogPos) < 35) {
       boss.splice(i, 1);
       eat.play();
     }
