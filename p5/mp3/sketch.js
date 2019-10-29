@@ -18,13 +18,14 @@ var song1, song2, song3, song4;
 var eat;
 var deadfish;
 
+
 function preload() {
   song1 = loadSound("assets/WelcomeSong.mp3");
   song2 = loadSound("assets/GamingSong.mp3");
   song3 = loadSound("assets/LoseSong.mp3");
   song4 = loadSound("assets/WinSong.mp3");
   eat = loadSound("assets/EatingSound.wav");
-  song1.loop();
+
 
 }
 
@@ -35,6 +36,7 @@ function setup() {
   imageMode(CENTER);
   noStroke();
   song1.play();
+  song1.loop();
   fontt = loadFont("assets/BalooBhai-Regular.ttf");
   welcomeCat = loadImage("assets/catMain.png");
   welcomeFish = loadImage("assets/fish.png");
@@ -53,12 +55,10 @@ function setup() {
   bossfish[1] = loadImage("assets/bossfish1.png");
   bossfish[2] = loadImage("assets/bossfish2.png");
 
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 9; i++) {
     cars.push(new Car());
   }
-  for (var i = 0; i < 3; i++) {
-    boss.push(new Boss());
-  }
+
 
   frogPos = createVector(width / 2, height - 80);
 }
@@ -74,7 +74,34 @@ function draw() {
       break;
 
     case 1:
+      background("#4a4562");
+      fill("#CCF3FE");
+      ellipse(100, 100, 100, 100);
+      fill("#CCF3FE");
+      ellipse(280, 140, 60, 60);
+      fill("#CCF3FE");
+      ellipse(1050, 150, 100, 100);
+      fill("#CCF3FE");
+      ellipse(1200, 80, 80, 80);
+
+
+      fill("#423d5a");
+      rect(0, 440, 3000, 400);
+      fill("#38344c");
+      rect(0, 600, 3000, 400);
+      textSize(70);
+      fill("#f8e9d3");
+      text("Level 1", 540, 150);
+
       game();
+
+      if (cars.length == 0 && boss.length == 0) {
+        timer = 0;
+        myState = 3;
+        song2.stop();
+        song4.play();
+      }
+
       timer++;
       if (timer > 1000) {
         timer = 0;
@@ -82,6 +109,8 @@ function draw() {
         song2.stop();
         song3.play();
       }
+
+
       break;
 
       //lose
@@ -171,9 +200,9 @@ function draw() {
       textFont(fontt);
       textSize(100);
       fill("#f87b32");
-      text("You Win :)", 410, 190);
+      text("You Win Lv1 :)", 350, 190);
       fill("#f8e9d3");
-      text("You Win :)", 415, 185);
+      text("You Win Lv1 :)", 355, 185);
 
       fill("255");
       rect(650, 400, 310, 110);
@@ -181,7 +210,190 @@ function draw() {
       rect(650, 400, 300, 100);
       textSize(50);
       fill(0);
-      text("Eat Again", 540, 420);
+      text("Eat More", 550, 420);
+
+      image(catWin, 280, 420, 480, 350);
+      image(deadfish, 1100, 400, 200, 200);
+      break;
+
+      //level2
+    case 4:
+      background("#4a4562");
+      fill("#CCF3FE");
+      ellipse(100, 100, 100, 100);
+      fill("#CCF3FE");
+      ellipse(280, 140, 60, 60);
+      fill("#CCF3FE");
+      ellipse(1050, 150, 100, 100);
+      fill("#CCF3FE");
+      ellipse(1200, 80, 80, 80);
+
+
+      fill("#423d5a");
+      rect(0, 440, 3000, 400);
+      fill("#38344c");
+      rect(0, 600, 3000, 400);
+      textSize(70);
+      fill("#f8e9d3");
+      text("Level 2", 540, 150);
+
+      game();
+
+      if (cars.length == 0 && boss.length == 0) {
+        timer = 0;
+        myState = 5;
+        song2.stop();
+        song4.play();
+      }
+
+      timer++;
+      if (timer > 1000) {
+        timer = 0;
+        myState = 2;
+        song2.stop();
+        song3.play();
+      }
+      break;
+
+      //win Lv2
+    case 5:
+      background("#4a4562");
+      fill("#CCF3FE");
+
+      y = y + 2;
+      if (y >= 300) {
+        y = -50;
+      }
+      ellipse(100, y, 100, 100);
+      fill("#CCF3FE");
+      y2 = y2 - 2;
+      if (y2 <= -30) {
+        y2 = 300;
+      }
+      ellipse(280, y2, 60, 60);
+      fill("#CCF3FE");
+      y3 = y3 - 1;
+      if (y3 <= -50) {
+        y3 = 300;
+      }
+      ellipse(1050, y3, 100, 100);
+      fill("#CCF3FE");
+      y4 = y4 + 2;
+      if (y4 >= 300) {
+        y4 = -50;
+      }
+      ellipse(1200, y4, 80, 80);
+
+
+      fill("#38344c");
+      rect(0, 430, 3000, 400);
+
+
+      textFont(fontt);
+      textSize(100);
+      fill("#f87b32");
+      text("You Win Lv2 :)", 350, 190);
+      fill("#f8e9d3");
+      text("You Win Lv2 :)", 355, 185);
+
+      fill("255");
+      rect(650, 400, 310, 110);
+      fill("#FDF07C");
+      rect(650, 400, 300, 100);
+      textSize(50);
+      fill(0);
+      text("Eat More", 550, 420);
+
+      image(catWin, 280, 420, 480, 350);
+      image(deadfish, 1100, 400, 200, 200);
+      break;
+
+    case 6:
+      background("#4a4562");
+      fill("#CCF3FE");
+      ellipse(100, 100, 100, 100);
+      fill("#CCF3FE");
+      ellipse(280, 140, 60, 60);
+      fill("#CCF3FE");
+      ellipse(1050, 150, 100, 100);
+      fill("#CCF3FE");
+      ellipse(1200, 80, 80, 80);
+
+
+      fill("#423d5a");
+      rect(0, 440, 3000, 400);
+      fill("#38344c");
+      rect(0, 600, 3000, 400);
+      textSize(70);
+      fill("#f8e9d3");
+      text("Level 3", 540, 150);
+
+      game();
+
+      if (cars.length == 0 && boss.length == 0) {
+        timer = 0;
+        myState = 7;
+        song2.stop();
+        song4.play();
+      }
+
+      timer++;
+      if (timer > 1000) {
+        timer = 0;
+        myState = 2;
+        song2.stop();
+        song3.play();
+      }
+      break;
+
+      //win Lv3
+    case 7:
+      background("#4a4562");
+      fill("#CCF3FE");
+
+      y = y + 2;
+      if (y >= 300) {
+        y = -50;
+      }
+      ellipse(100, y, 100, 100);
+      fill("#CCF3FE");
+      y2 = y2 - 2;
+      if (y2 <= -30) {
+        y2 = 300;
+      }
+      ellipse(280, y2, 60, 60);
+      fill("#CCF3FE");
+      y3 = y3 - 1;
+      if (y3 <= -50) {
+        y3 = 300;
+      }
+      ellipse(1050, y3, 100, 100);
+      fill("#CCF3FE");
+      y4 = y4 + 2;
+      if (y4 >= 300) {
+        y4 = -50;
+      }
+      ellipse(1200, y4, 80, 80);
+
+
+      fill("#38344c");
+      rect(0, 430, 3000, 400);
+
+
+      textFont(fontt);
+      textSize(100);
+      fill("#f87b32");
+      text("You Win Lv3 :D", 350, 190);
+      fill("#f8e9d3");
+      text("You Win Lv3 :D", 355, 185);
+
+      fill("255");
+      rect(650, 400, 310, 110);
+      fill("#FDF07C");
+      rect(650, 400, 300, 100);
+      textSize(50);
+      fill(0);
+      text("Back to menu", 510, 420);
 
       image(catWin, 280, 420, 480, 350);
       image(deadfish, 1100, 400, 200, 200);
@@ -191,6 +403,7 @@ function draw() {
 }
 
 function mouseReleased() {
+
   console.log(mouseX, mouseY);
   switch (myState) {
     case 0:
@@ -211,6 +424,24 @@ function mouseReleased() {
       break;
 
     case 3:
+      LV2TheGame();
+      if ((mouseX > 497) && (mouseX < 801) && (mouseY > 350) && (mouseY < 448)) {
+        myState = 4;
+        song4.stop();
+        song2.play();
+      }
+      break;
+
+    case 5:
+      LV3TheGame();
+      if ((mouseX > 497) && (mouseX < 801) && (mouseY > 350) && (mouseY < 448)) {
+        myState = 6;
+        song4.stop();
+        song2.play();
+      }
+      break;
+
+    case 7:
       resetTheGame();
       if ((mouseX > 497) && (mouseX < 801) && (mouseY > 350) && (mouseY < 448)) {
         myState = 0;
@@ -229,10 +460,11 @@ function Car() {
   this.number = floor(random(fish.length - 1));
   this.timer = 0;
   this.maxTimer = random(22, 28);
+  this.vell = createVector(random(90, 100), random(50, 60));
 
   //method
   this.display = function() {
-    image(fish[this.number], this.pos.x, this.pos.y, 100, 60);
+    image(fish[this.number], this.pos.x, this.pos.y, this.vell.x, this.vell.y);
     this.timer = this.timer + 1;
     if (this.timer > 30) {
       this.number = this.number + 1;
@@ -351,7 +583,7 @@ function welcome() {
   textSize(25);
   text("1. Press Arrow keys to move cat.", 850, 340);
   text(" ↑    ↓    ←    →", 980, 380);
-  text("3. Collect all the fish by cat within", 850, 420);
+  text("2. Collect all the fish by cat within", 850, 420);
   text("16 seconds to win the game.", 875, 460);
 
 
@@ -364,33 +596,18 @@ function welcome() {
   fill(0);
   text("Click to play", 510, 420);
 
-  image(welcomeCat, 230, 435, 400, 370);
+  image(welcomeCat, 230, 435, 370, 340);
   image(welcomeFish, 950, 530, 140, 80);
   image(welcomeBossfish, 1150, 530, 160, 110);
 }
 
 function game() {
-  background("#4a4562");
-  fill("#CCF3FE");
-  ellipse(100, 100, 100, 100);
-  fill("#CCF3FE");
-  ellipse(280, 140, 60, 60);
-  fill("#CCF3FE");
-  ellipse(1050, 150, 100, 100);
-  fill("#CCF3FE");
-  ellipse(1200, 80, 80, 80);
-
-
-  fill("#423d5a");
-  rect(0, 440, 3000, 400);
-  fill("#38344c");
-  rect(0, 600, 3000, 400);
 
   for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
 
-    if (cars[i].pos.dist(frogPos) < 40) {
+    if (cars[i].pos.dist(frogPos) < 48) {
       cars.splice(i, 1);
       eat.play();
     }
@@ -400,18 +617,13 @@ function game() {
     boss[i].display();
     boss[i].drive();
 
-    if (boss[i].pos.dist(frogPos) < 35) {
+    if (boss[i].pos.dist(frogPos) < 42) {
       boss.splice(i, 1);
       eat.play();
     }
   }
 
-  if (cars.length == 0 && boss.length == 0) {
-    timer = 0;
-    myState = 3;
-    song2.stop();
-    song4.play();
-  }
+
 
 
   //frog
@@ -421,11 +633,38 @@ function game() {
 
 function resetTheGame() {
   cars = [];
+  boss = [];
+  for (var i = 0; i < 7; i++) {
+    cars.push(new Car());
+  }
+
+  frogPos = createVector(width / 2, height - 80);
+}
+
+function LV2TheGame() {
+  cars = [];
+  boss = [];
   for (var i = 0; i < 10; i++) {
     cars.push(new Car());
   }
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 5; i++) {
     boss.push(new Boss());
   }
   frogPos = createVector(width / 2, height - 80);
+}
+
+function LV3TheGame() {
+  cars = [];
+  boss = [];
+  for (var i = 0; i < 15; i++) {
+    cars.push(new Car());
+  }
+  for (var i = 0; i < 4; i++) {
+    boss.push(new Boss());
+  }
+  frogPos = createVector(width / 2, height - 80);
+}
+
+function touchStarted() {
+  getAudioContext().resume();
 }

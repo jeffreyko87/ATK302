@@ -27,6 +27,7 @@ function setup() {
   bunnyImage = loadImage("assets/pikachu.png");
   imageMode(CENTER);
   rectMode(CENTER);
+  frogPos=createVector(width/2,height-80);
 
 }
 
@@ -34,9 +35,11 @@ function draw() {
 
   background('#c6f5ff'); // light blue
 
+
   for(var i=0;i<cars.length;i++){
   cars[i].display();
   cars[i].drive();
+
 
   if (cars[i].pos.dist(frogPos)<20){
     cars.splice(i,1);
@@ -47,6 +50,8 @@ function draw() {
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -60, 60, 0, width);
   yPosition = map(beta, -30, 30, 0, height);
+  frogPos.x= xPosition;
+  frogPos.y= yPosition;
 
   push(); // before you use translate, rotate, or scale commands, push and then pop after
 
@@ -54,7 +59,7 @@ function draw() {
 
   rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
-  image(bunnyImage, 0, 0, 500, 500);
+  image(bunnyImage, frogPos.x, frogPos.y, 200, 200);
   //  	rect(0, 0, 100, 100) ;
   pop();
 
