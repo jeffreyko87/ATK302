@@ -86,11 +86,11 @@ function Circle(myNickname, myColor) {
       ellipse(this.pos.x, this.pos.y, this.size, this.size);
     }
     if (this.color == "Indigo") {
-      fill("#027AF2");
+      fill("#7580FF");
       ellipse(this.pos.x, this.pos.y, this.size, this.size);
     }
     if (this.color == "Purple") {
-      fill("#7A02F2");
+      fill("#A575FF");
       ellipse(this.pos.x, this.pos.y, this.size, this.size);
     }
 
